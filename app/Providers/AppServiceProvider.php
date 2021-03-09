@@ -26,5 +26,10 @@ class AppServiceProvider extends ServiceProvider
     {
         // Herokuではvarchar型の文字数はデフォルトの255では大きすぎるため191に設定
         Schema::defaultStringLength(191);
+
+        // https化
+        if (\App::environment('production')) {
+            \URL::forceScheme('https');
+        }
     }
 }
