@@ -23,12 +23,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // // Herokuではvarchar型の文字数はデフォルトの255では大きすぎるため191に設定
-        // Schema::defaultStringLength(191);
+        // Herokuではvarchar型の文字数はデフォルトの255では大きすぎるため191に設定
+        Schema::defaultStringLength(191);
 
-        // // https化
-        // if (\App::environment('production')) {
-        //     \URL::forceScheme('https');
-        // }
+        // https化
+        if (\App::environment('production')) {
+            \URL::forceScheme('https');
+        }
     }
 }
